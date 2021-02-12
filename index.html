@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Linterna</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+
+            body{
+                background: black;
+                cursor: none;
+            }
+
+            ::-webkit-scrollbar{
+                display: none;
+            }
+            
+            p{
+                position: absolute;
+                width: 900px;
+                height: 50px;
+                color: black;
+                font-weight: bold;
+                font-family: century gothic;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 38px;
+            }
+
+            div{
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                border: none;
+                background: white;
+                border-radius: 50%;
+                box-shadow: 0px 0px 20px 10px gray inset;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <p>PERRO TEIBOLERO DESGRACIADO</p>
+
+        <script>
+            var cursor = document.querySelector("div");
+
+            document.addEventListener("mousemove", function(value){
+                var x = value.clientX;
+                var y = value.clientY;
+
+                cursor.style.left = x + "px";
+                cursor.style.top = y + "px";
+            });
+        </script>
+    </body>
+</html>
