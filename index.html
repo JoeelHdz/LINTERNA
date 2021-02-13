@@ -4,58 +4,41 @@
         <meta charset="UTF-8">
         <title>Linterna</title>
         <style>
-            *{
-                margin: 0;
-                padding: 0;
+            body {
+            margin:0px;
+            height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:#000;
             }
-
-            body{
-                background: black;
-                cursor: none;
+            .image {
+            width:900px;
+            height:900px;
+            background:black center no-repeat;
+            background-size:cover;
+            border:10px solid #888;
+            cursor:none;
             }
-
-            ::-webkit-scrollbar{
-                display: none;
-            }
-            
-            p{
-                position: absolute;
-                width: 900px;
-                height: 50px;
-                color: black;
-                font-weight: bold;
-                font-family: century gothic;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                font-size: 38px;
-            }
-
-            div{
-                position: absolute;
-                width: 100px;
-                height: 100px;
-                border: none;
-                background: white;
-                border-radius: 50%;
-                box-shadow: 0px 0px 20px 10px gray inset;
+            .image .torch {
+            width:900px;
+            height:900px;
+            background:url("Disney.jpg") center no-repeat;
+            background-size:cover;  
+            clip-path:circle(40px at 0px 0px);
             }
         </style>
     </head>
     <body>
-        <div></div>
-        <p>PERRO TEIBOLERO DESGRACIADO</p>
+        <div class="image" onmousemove="moveTorch(event)">
+            <div class="torch"></div>
+          </div>
 
-        <script>
-            var cursor = document.querySelector("div");
-
-            document.addEventListener("mousemove", function(value){
-                var x = value.clientX;
-                var y = value.clientY;
-
-                cursor.style.left = x + "px";
-                cursor.style.top = y + "px";
-            });
-        </script>
+          <script>
+              function moveTorch(event){
+                var torch = document.getElementsByClassName("torch")[0];
+                torch.style.clipPath = `circle(40px at ${event.offsetX}px ${event.offsetY}px)`;
+                }
+          </script>
     </body>
 </html>
